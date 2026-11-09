@@ -1,0 +1,45 @@
+DEPLOYMENT GUIDE — Hosam's Portfolio
+====================================
+
+FILES
+  index.html                        -> your portfolio website
+  Hosam_Elmowafy_CV_OnePage.pdf     -> linked by the "Download CV" buttons
+  profile.jpg                       -> your photo in the hero section
+
+STEP 1 — HOST THE SITE (pick one, all free)
+--------------------------------------------
+A) Netlify Drop (easiest, 2 minutes)
+   1. Go to https://app.netlify.com/drop
+   2. Drag BOTH files into the page (or a folder containing them)
+   3. You get a URL like https://random-name.netlify.app
+
+B) GitHub Pages
+   1. Create a GitHub repo, upload both files
+   2. Settings -> Pages -> Source: main branch -> Save
+   3. URL: https://YOUR-USERNAME.github.io/REPO-NAME
+
+C) Cloudflare Pages
+   1. dash.cloudflare.com -> Pages -> Create project -> Upload assets
+   2. Drag both files in
+
+STEP 2 — CONNECT YOUR FREEDOMAIN (DigitalPlat)
+-----------------------------------------------
+1. Log in to the DigitalPlat FreeDomain dashboard
+2. Open your domain -> DNS settings
+3. Add records:
+
+   For Netlify:
+     TYPE: CNAME   NAME: @    VALUE: your-site.netlify.app   (or use Netlify's
+     load-balancer IP 75.2.60.5 as an A record if @ CNAME is not allowed)
+     TYPE: CNAME   NAME: www  VALUE: your-site.netlify.app
+
+   For GitHub Pages:
+     TYPE: CNAME   NAME: www  VALUE: YOUR-USERNAME.github.io
+     (in the repo: Settings -> Pages -> Custom domain: www.YOURDOMAIN.us.kg)
+
+4. Wait 5–30 minutes for DNS, then open https://www.YOURDOMAIN.us.kg
+
+NOTES
+- Keep the domain active in the DigitalPlat dashboard (free domains usually
+  require periodic renewal — check their policy so it doesn't expire).
+- The site is 100% static: no server, no database, nothing to maintain.
